@@ -1,20 +1,40 @@
 const { Router } = require('express');
 const PessoaController = require('../controllers/PessoaController.js');
+const MatriculaController = require("../controllers/MatriculaController");
 
 const router = Router();
 
 router
   .get("/pessoas", PessoaController.pegaTodasAsPessoas)
-  .get("/pessoas/:id", PessoaController.pegarUmaPessoa)
-  .post("/pessoas", PessoaController.criarPessoa)
-  .put("/pessoas/:id", PessoaController.atualizarPessoa)
-  .delete("/pessoas/:id", PessoaController.deletarPessoa)
-  .get("/pessoas/:estudanteId/matriculas/:matriculaId", PessoaController.pegaUmaMatricula)
-  .post("/pessoas/:estudanteId/matriculas", PessoaController.criaMatricula)
-  .put("/pessoas/:estudanteId/matriculas/:matriculaId", PessoaController.atualizaMatricula)
-  .delete("/pessoas/:estudanteId/matriculas/:matriculaId", PessoaController.apagaMatricula)
+  .get("/pessoas/ativas", PessoaController.pegaPessoasAtivas)
+  .get("/pessoas/:id", PessoaController.pegaPessoa)
+  .get("/pessoas/:estudanteId/matricula", PessoaController.pegaMatriculas)
+  .get(
+    "/pessoas/:estudanteId/matricula/:matriculaId",
+    MatriculaController.pegaUmaMatricula
+  )
+  .get(
+    "/pessoas/matricula/:turmaId/confirmadas",
+    MatriculaController.pegaMatriculasPorTurma
+  )
+  .get("/pessoas/matricula/lotada", MatriculaController.pegaTurmasLotadas)
+  .post("/pessoas", PessoaController.criaPessoa)
+  .post("/pessoas/:id/restaura", PessoaController.restauraPessoa)
+  .post("/pessoas/:estudanteId/cancela", PessoaController.cancelaPessoa)
+  .post("/pessoas/:estudanteId/matricula", MatriculaController.criaMatricula)
+  .post(
+    "/pessoas/:estudanteId/matricula/:matriculaId/restaura",
+    MatriculaController.restauraMatricula
+  )
+  .put("/pessoas/:id", PessoaController.atualizaPessoa)
+  .put(
+    "/pessoas/:estudanteId/matricula/:matriculaId",
+    MatriculaController.atualizaMatricula
+  )
+  .delete("/pessoas/:id", PessoaController.apagaPessoa)
+  .delete(
+    "/pessoas/:estudanteId/matricula/:matriculaId",
+    MatriculaController.apagaMatricula
+  );
 
-
-
-  module.exports = router;
-    
+module.exports = router;

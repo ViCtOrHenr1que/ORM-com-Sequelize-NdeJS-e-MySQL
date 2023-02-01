@@ -1,16 +1,12 @@
 const { Router } = require("express");
-const TurmaController = require("../controllers/TurmaController.js");
-
+const TurmaController = require("../controllers/TurmaController");
 
 const router = Router();
-
-router 
-    .get('/turmas', TurmaController.PegarTodasAsTurmas)
-    .get('/turmas/:id', TurmaController.PegarUmaTurma)
-    .post('/turmas', TurmaController.CriarTurma)
-    .put('/turmas/:id', TurmaController.AtualizarTurma)
-    .delete('/turmas/:id', TurmaController.DeletarTurma)
-    
-
-
+router
+  .get("/turmas", TurmaController.pegaTodasAsTurmas)
+  .get("/turmas/:id", TurmaController.pegaTurma)
+  .post("/turmas", TurmaController.criaTurma)
+  .post("/turmas/:id/restaura", TurmaController.restauraTurma)
+  .put("/turmas/:id", TurmaController.atualizaTurma)
+  .delete("/turmas/:id", TurmaController.apagaTurma);
 module.exports = router;

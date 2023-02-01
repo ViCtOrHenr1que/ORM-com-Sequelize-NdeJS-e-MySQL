@@ -4,6 +4,7 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Matriculas extends Model {
+   
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -23,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Matriculas',
+    paranoid: true, //soft delete
   });
   return Matriculas;
 };
