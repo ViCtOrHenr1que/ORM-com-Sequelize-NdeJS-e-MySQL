@@ -14,6 +14,17 @@ Essa API permite o gerenciamento de uma escola de inglês, incluindo a gestão d
 - MySQL
 - Sequelize
 
+## Dependências Utilizadas
+- "body-parser": "^1.20.1"
+- "express": "^4.18.2"
+- "mysql2": "^3.0.1"
+- "path": "^0.12.7"
+- "sequelize": "^6.28.0"
+- "sequelize-cli": "^6.5.2"
+
+## Dependências de desenvolvedor
+- "nodemon": "^2.0.20"
+
 ## Documentação da API
 Em desenvolvimento ...
 
