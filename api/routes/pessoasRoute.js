@@ -9,32 +9,17 @@ router
   .get("/pessoas/ativas", PessoaController.pegaPessoasAtivas)
   .get("/pessoas/:id", PessoaController.pegaPessoa)
   .get("/pessoas/:estudanteId/matricula", PessoaController.pegaMatriculas)
-  .get(
-    "/pessoas/:estudanteId/matricula/:matriculaId",
-    MatriculaController.pegaUmaMatricula
-  )
-  .get(
-    "/pessoas/matricula/:turmaId/confirmadas",
-    MatriculaController.pegaMatriculasPorTurma
-  )
+  .get("/pessoas/:estudanteId/matricula/:matriculaId" ,MatriculaController.pegaUmaMatricula)
+  .get("/pessoas/matricula/:turmaId/confirmadas",MatriculaController.pegaMatriculasPorTurma)
   .get("/pessoas/matricula/lotada", MatriculaController.pegaTurmasLotadas)
   .post("/pessoas", PessoaController.criaPessoa)
   .post("/pessoas/:id/restaura", PessoaController.restauraPessoa)
   .post("/pessoas/:estudanteId/cancela", PessoaController.cancelaPessoa)
   .post("/pessoas/:estudanteId/matricula", MatriculaController.criaMatricula)
-  .post(
-    "/pessoas/:estudanteId/matricula/:matriculaId/restaura",
-    MatriculaController.restauraMatricula
-  )
+  .post("/pessoas/:estudanteId/matricula/:matriculaId/restaura", MatriculaController.restauraMatricula)
   .put("/pessoas/:id", PessoaController.atualizaPessoa)
-  .put(
-    "/pessoas/:estudanteId/matricula/:matriculaId",
-    MatriculaController.atualizaMatricula
-  )
+  .put("/pessoas/:estudanteId/matricula/:matriculaId", MatriculaController.atualizaMatricula)
   .delete("/pessoas/:id", PessoaController.apagaPessoa)
-  .delete(
-    "/pessoas/:estudanteId/matricula/:matriculaId",
-    MatriculaController.apagaMatricula
-  );
+  .delete("/pessoas/:estudanteId/matricula/:matriculaId", MatriculaController.apagaMatricula);
 
 module.exports = router;
